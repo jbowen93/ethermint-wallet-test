@@ -8,6 +8,7 @@ import { broadcast, getSender, LOCALNET_CHAIN, LOCALNET_FEE, signTransaction } f
         'kit bread busy lonely sad silent ranch rose tip cup when umbrella village mimic neither sense unaware vacant culture glass crawl make saddle mixture'
     const wallet = Wallet.fromMnemonic(privateMnemonic)
 
+    console.log("wallet: ", wallet)
     const sender = await getSender(wallet, "http://localhost:26659")
     const txSimple = createMessageSend(
         LOCALNET_CHAIN,
