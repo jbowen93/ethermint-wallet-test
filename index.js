@@ -20,7 +20,7 @@ import { ethToEthermint } from '@tharsis/address-converter'
     console.log("wallet: ", wallet)
     console.log("ethermint address: ", ethToEthermint(wallet.address))
     try {
-     const sender = await getSender(wallet, "http://localhost:26659")
+     const sender = await getSender(wallet, "http://localhost:1318")
     }
     catch (err) {
         console.error("Couldnt Get Sender, err: ", err)
@@ -43,7 +43,7 @@ import { ethToEthermint } from '@tharsis/address-converter'
         console.error("Couldnt Sign Tx, err: ", err)
     }
     try {
-        const broadcastRes = await broadcast(resKeplr, "http://localhost:26659")
+        const broadcastRes = await broadcast(resKeplr, "http://localhost:1318")
     }
     catch (err) {
         console.error("Couldnt Broadcast, err: ", err)
