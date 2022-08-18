@@ -19,7 +19,12 @@ import { ethToEthermint } from '@tharsis/address-converter'
 
     console.log("wallet: ", wallet)
     console.log("ethermint address: ", ethToEthermint(wallet.address))
-    const sender = await getSender(wallet, "http://localhost:26659")
+    try {
+     const sender = await getSender(wallet, "http://localhost:26659")
+    }
+    catch (err) {
+        console.error("Couldnt Get Sender, err: ", err)
+    }
     const txSimple = createMessageSend(
         localnetChain,
         sender,
@@ -31,9 +36,18 @@ import { ethToEthermint } from '@tharsis/address-converter'
             denom: 'aphoton',
         },
     )
-
-    const resKeplr = await signTransaction(wallet, txSimple)
-    const broadcastRes = await broadcast(resKeplr, "http://localhost:26659")
+    try {
+        const resKeplr = await signTransaction(wallet, txSimple)
+    }
+    catch (err) {
+        console.error("Couldnt Sign Tx, err: ", err)
+    }
+    try {
+        const broadcastRes = await broadcast(resKeplr, "http://localhost:26659")
+    }
+    catch (err) {
+        console.error("Couldnt Broadcast, err: ", err)
+    }
     if (broadcastRes.tx_response.code === 0) {
         console.log('Success')
     } else {
