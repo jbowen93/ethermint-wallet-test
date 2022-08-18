@@ -1,7 +1,7 @@
 import { Wallet } from "@ethersproject/wallet"
 import { createMessageSend } from "@tharsis/transactions"
 import { broadcast, getSender, LOCALNET_CHAIN, LOCALNET_FEE, signTransaction } from "@hanchon/evmos-ts-wallet"
-import { ethToEvmos } from '@tharsis/address-converter'
+import { ethToEthermint } from '@tharsis/address-converter'
 
 (async () => {
     const privateMnemonic =
@@ -9,7 +9,7 @@ import { ethToEvmos } from '@tharsis/address-converter'
     const wallet = Wallet.fromMnemonic(privateMnemonic)
 
     console.log("wallet: ", wallet)
-    console.log("ethermint address: ", ethToEvmos(wallet.address))
+    console.log("ethermint address: ", ethToEthermint(wallet.address))
     const sender = await getSender(wallet, "http://localhost:26659")
     const txSimple = createMessageSend(
         LOCALNET_CHAIN,
