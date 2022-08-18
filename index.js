@@ -1,9 +1,18 @@
 import { Wallet } from "@ethersproject/wallet"
 import { createMessageSend } from "@tharsis/transactions"
-import { broadcast, getSender, LOCALNET_CHAIN, LOCALNET_FEE, signTransaction } from "@hanchon/evmos-ts-wallet"
+import { broadcast, getSender, signTransaction } from "@hanchon/evmos-ts-wallet"
 import { ethToEthermint } from '@tharsis/address-converter'
 
 (async () => {
+    const localnetChain = {
+        chainId: 69420,
+        cosmosChainId: "opti_69420-1"
+    }
+    const localnetFee = {
+        amount: "0",
+        denom: "aphoton",
+        gas: "0aphoton"
+    }
     const privateMnemonic =
         'kit bread busy lonely sad silent ranch rose tip cup when umbrella village mimic neither sense unaware vacant culture glass crawl make saddle mixture'
     const wallet = Wallet.fromMnemonic(privateMnemonic)
@@ -12,9 +21,9 @@ import { ethToEthermint } from '@tharsis/address-converter'
     console.log("ethermint address: ", ethToEthermint(wallet.address))
     const sender = await getSender(wallet, "http://localhost:26659")
     const txSimple = createMessageSend(
-        LOCALNET_CHAIN,
+        localnetChain,
         sender,
-        LOCALNET_FEE,
+        localnetFee,
         '',
         {
             destinationAddress: 'ethm1ft8d54035h04zvftqwv6vswnp8rzyc3hly4qpw',
