@@ -39,6 +39,7 @@ import { ethToEthermint } from '@tharsis/address-converter'
         } else {
             console.log('Error')
         }
+        console.log(broadcastRes)
     }
     catch (err) {
         console.error("Catch, err: ", err)
