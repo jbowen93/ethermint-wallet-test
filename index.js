@@ -15,9 +15,9 @@ import { broadcast, getSender, LOCALNET_CHAIN, LOCALNET_FEE, signTransaction } f
         LOCALNET_FEE,
         '',
         {
-            destinationAddress: 'ethm1rxaz4ulx70lnnul8ar23nc8lm5f088h0h0an60',
-            amount: '1',
-            denom: 'aevmos',
+            destinationAddress: 'ethm1ft8d54035h04zvftqwv6vswnp8rzyc3hly4qpw',
+            amount: '10000',
+            denom: 'aphoton',
         },
     )
 
