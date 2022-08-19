@@ -9,9 +9,9 @@ import { ethToEthermint } from '@tharsis/address-converter'
         cosmosChainId: "opti_69420-1"
     }
     const localnetFee = {
-        amount: "10000",
+        amount: "1000",
         denom: "aphoton",
-        gas: "100000aphoton"
+        gas: "200000"
     }
     const privateMnemonic =
         'kit bread busy lonely sad silent ranch rose tip cup when umbrella village mimic neither sense unaware vacant culture glass crawl make saddle mixture'
@@ -32,7 +32,7 @@ import { ethToEthermint } from '@tharsis/address-converter'
                 denom: 'aphoton',
             },
         )
-        const resKeplr = await signTransaction(wallet, txSimple)
+        const resKeplr = await signTransaction(wallet, txSimple, 'BROADCAST_MODE_SYNC')
         const broadcastRes = await broadcast(resKeplr, "http://localhost:1318")
         if (broadcastRes.tx_response.code === 0) {
             console.log('Success')
