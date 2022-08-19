@@ -9,7 +9,7 @@ import { ethToEthermint } from '@tharsis/address-converter'
         cosmosChainId: "opti_69420-1"
     }
     const localnetFee = {
-        amount: "0",
+        amount: "10000",
         denom: "aphoton",
         gas: "100000aphoton"
     }
