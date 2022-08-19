@@ -11,7 +11,7 @@ import { ethToEthermint } from '@tharsis/address-converter'
     const localnetFee = {
         amount: "0",
         denom: "aphoton",
-        gas: "0aphoton"
+        gas: "10000aphoton"
     }
     const privateMnemonic =
         'kit bread busy lonely sad silent ranch rose tip cup when umbrella village mimic neither sense unaware vacant culture glass crawl make saddle mixture'
